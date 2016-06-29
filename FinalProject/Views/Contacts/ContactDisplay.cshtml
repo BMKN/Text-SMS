@@ -1,0 +1,58 @@
+﻿
+@model FinalProject.Models.Contacts
+
+
+
+
+
+@{
+    ViewBag.Title = "Contact/ContactDisplay";
+
+
+
+}
+
+<div id="test">
+
+    <h2>@Session["name"]
+
+    <br />  Welcome to Your contact list is below </h2><br />
+
+
+
+
+    <table border="1" style="background-color:#FFFFCC;border-collapse:collapse;border:1px solid #FFCC00;color:#000000;width:100%">
+
+
+
+        @foreach (var comment in ViewBag.mycontacts)
+        {
+            Session["Username"] = comment.FirstName;
+            Session["CustomersFriendNumber"] = comment.CustomersFriendNumber;
+            <tr>
+                <td width="25%">@Session["Username"]      </td>
+                <td width="25%">@Session["CustomersFriendNumber"]</td>
+                <td width="25%"> @Html.ActionLink("Delete", "EditContacts", "AddContact")</td>
+           
+
+                </tr>
+            
+
+
+
+
+        }
+    </table>
+
+</div>
+<h3>Your new number is @ViewBag.NewNumber</h3>
+
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Models/Stylejs.js"></script>
+
+
+
+
+
+
+
